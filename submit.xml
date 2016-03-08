@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<job maxFilesPerProcess="1" filesPerHour="6" fileListSyntax="paths" simulateSubmission="false">
+	<command>
+		starver SL16b
+
+		python bfc.py "P2016 btof BEmcChkStat CorrX OSpaceZ2 OGridLeak3D NoHistos NoRunco -tags -geantOut -evout" "/star/data03/daq/jdb/run16_auau200/vpd_postmortem/st_physics_17038023_raw_2000001.daq" $JOBINDEX st_physics_17038023_raw_2000001  &gt;&amp; log_${JOBINDEX}.log
+	</command>
+
+	<stdout URL="file:/star/data03/daq/jdb/run16_auau200/vpd_postmortem/out/log/$JOBID.out" />
+	<stderr URL="file:/star/data03/daq/jdb/run16_auau200/vpd_postmortem/out/log/$JOBID.err" />
+	<input URL="filelist:/star/u/jdb/work/ChainDoer/list.lis" nFiles="600"/>
+	    <output fromScratch="*" toURL="file:/star/data03/daq/jdb/run16_auau200/vpd_postmortem/out/" />
+	<SandBox>
+ 		<Package>
+ 			<File>file:./bfc.py</File>
+ 		</Package> 
+ 	</SandBox>
+
+	<Generator> 
+ 		<Location>/star/data03/daq/jdb/run16_auau200/vpd_postmortem/out/gen</Location> 
+ 	</Generator> 
+</job>

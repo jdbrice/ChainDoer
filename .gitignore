@@ -1,0 +1,6 @@
+*.root
+*.session.xml
+*.dataset
+paw.metafile
+log
+out
