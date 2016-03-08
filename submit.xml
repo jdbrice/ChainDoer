@@ -3,13 +3,13 @@
 	<command>
 		starver SL16b
 
-		python bfc.py "P2016 btof BEmcChkStat CorrX OSpaceZ2 OGridLeak3D NoHistos NoRunco -tags -geantOut -evout" "/star/data03/daq/jdb/run16_auau200/vpd_postmortem/st_physics_17038023_raw_2000001.daq" $JOBINDEX st_physics_17038023_raw_2000001  &gt;&amp; log_${JOBINDEX}.log
+		python bfc.py "P2016 btof BEmcChkStat CorrX OSpaceZ2 OGridLeak3D -hitfilt NoHistos NoRunco -tags -geantOut -evout" "/star/data03/daq/jdb/run16_auau200/st_physics_17066042_raw_1000002.daq" $JOBINDEX st_physics_17066042_raw_1000002  &gt;&amp; log_${JOBINDEX}.log
 	</command>
 
-	<stdout URL="file:/star/data03/daq/jdb/run16_auau200/vpd_postmortem/out/log/$JOBID.out" />
-	<stderr URL="file:/star/data03/daq/jdb/run16_auau200/vpd_postmortem/out/log/$JOBID.err" />
+	<stdout URL="file:/star/data03/pwg/jdb/scratch/log/$JOBID.out" />
+	<stderr URL="file:/star/data03/pwg/jdb/scratch/log/$JOBID.err" />
 	<input URL="filelist:/star/u/jdb/work/ChainDoer/list.lis" nFiles="600"/>
-	    <output fromScratch="*" toURL="file:/star/data03/daq/jdb/run16_auau200/vpd_postmortem/out/" />
+	    <output fromScratch="*" toURL="file:/star/data03/pwg/jdb/scratch/" />
 	<SandBox>
  		<Package>
  			<File>file:./bfc.py</File>
@@ -17,6 +17,6 @@
  	</SandBox>
 
 	<Generator> 
- 		<Location>/star/data03/daq/jdb/run16_auau200/vpd_postmortem/out/gen</Location> 
+ 		<Location>/star/data03/pwg/jdb/scratch/gen</Location> 
  	</Generator> 
 </job>
