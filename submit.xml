@@ -9,7 +9,8 @@
 	<stdout URL="file:/star/data03/pwg/jdb/scratch/log/$JOBID.out" />
 	<stderr URL="file:/star/data03/pwg/jdb/scratch/log/$JOBID.err" />
 	<input URL="filelist:/star/u/jdb/work/ChainDoer/list.lis" nFiles="2"/>
-	<output fromScratch="*" toURL="file:/star/data03/pwg/jdb/scratch/" />
+	<output fromScratch="*.root" toURL="file:/star/data03/pwg/jdb/scratch/" />
+    <output fromScratch="*.log" toURL="file:/star/data03/pwg/jdb/scratch/" />
 	<SandBox>
  		<Package>
  			<File>file:./bfc.py</File>
