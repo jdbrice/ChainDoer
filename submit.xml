@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <job maxFilesPerProcess="1" filesPerHour="6" fileListSyntax="paths" simulateSubmission="false">
 	<command>
-		starver SL16b
+		starver dev
 
-		python bfc.py "P2016 btof BEmcChkStat CorrX OSpaceZ2 OGridLeak3D -hitfilt NoHistos NoRunco -tags -geantOut -evout" "/star/data03/daq/jdb/run16_auau200/st_physics_17066042_raw_1500001.daq" $JOBINDEX st_physics_17066042_raw_1500001  &gt;&amp; log_${JOBINDEX}.log
+		python bfc.py "P2017a PicoVtxDefault btof CMuDst -hitfilt" $INPUTFILE0 $JOBINDEX $FILEBASENAME  &gt;&amp; log_${JOBINDEX}.log
 	</command>
 
 	<stdout URL="file:/star/data03/pwg/jdb/scratch/log/$JOBID.out" />
 	<stderr URL="file:/star/data03/pwg/jdb/scratch/log/$JOBID.err" />
-	<input URL="filelist:/star/u/jdb/work/ChainDoer/list.lis" nFiles="534"/>
-	    <output fromScratch="*" toURL="file:/star/data03/pwg/jdb/scratch/" />
+	<input URL="filelist:/star/u/jdb/work/ChainDoer/list.lis" nFiles="2"/>
+	<output fromScratch="*" toURL="file:/star/data03/pwg/jdb/scratch/" />
 	<SandBox>
  		<Package>
  			<File>file:./bfc.py</File>

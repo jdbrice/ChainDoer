@@ -18,20 +18,18 @@ jobIndex = int(argv[3])
 jobName = argv[4]
 
 if len( argv ) >= 6 :
-	splitBy = int(argv[5])
+	nEvents = int(argv[5])
 else :
-	splitBy = 10
+	nEvents = 5000
 
-print "splitBy", splitBy
+print "nEvents", nEvents
 
-evMin = jobIndex * splitBy
-evMax = (jobIndex + 1 ) * splitBy - 1
+outfile = "out_" + jobName
+logfile = "log_" + jobName
 
-outfile = "out_" + jobName + "_{a}_{b}".format( a=evMin, b=evMax )
-logfile = "log_" + jobName + "_{a}_{b}.log".format( a=evMin, b=evMax )
+command = "\'$STAR/StRoot/macros/bfc.C({a}, \"{chain}\", \"{inf}\", \"{outf}\")\'".format( a=nEvents, chain=chain, inf=infile, outf=outfile )
 
-command = "\'$STAR/StRoot/macros/bfc.C({a}, {b}, \"{chain}\", \"{inf}\", \"{outf}\")\'".format( a=evMin, b=evMax, chain=chain, inf=infile, outf=outfile )
-
+print command
 os.system( " root4star -b -q -l " + command )
 
 
